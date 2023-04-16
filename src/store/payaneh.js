@@ -1,4 +1,4 @@
-import { makeObservable, observable, makeAutoObservable } from "mobx";
+import { makeObservable, observable } from "mobx";
 import { getSourceProvinces, getSourceCities, getDestinationProvinces, getDestinationCities, getTickets } from "@/http";
 
 
@@ -7,10 +7,8 @@ class PayanehStore {
     sourceCities = [];
     destProvs = [];
     destCities = [];
-    tickets = [];
     constructor() {
         makeObservable(this, {
-            //tickets: observable,
             sourceProvinces: observable,
             sourceCities: observable,
             destProvs: observable,
@@ -35,16 +33,7 @@ class PayanehStore {
 
     getDestCities = async (destProvinceId, srcCityId) => {
         let result = await getDestinationCities(destProvinceId, srcCityId);
-        console.log('store after getDestCities: ', result);
         this.destCities = result.filter(c => c.title);
-    }
-
-    getTickets = async (srcCity, destCity, date) => {
-        let result = await getTickets(srcCity, destCity, date)
-        console.log('store after getTickets: ', result);
-        return result;
-        this.tickets = result;
-        console.log('this.tickets: ', this.tickets);
     }
 }
 

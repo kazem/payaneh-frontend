@@ -72,20 +72,4 @@ export async function getDestinationCities(destProvinceId, srcCityId) {
     return result;
 }
 
-export async function getTickets(srcCity, destCity, date) {
-    let result = axios.post(`http://localhost:3000/get-result`, {
-        // srcCity: srcCity,
-        // destCity: destCity,
-        // ticketDate: date.replace('/', '').replace('/', '')
-    })
-        .then(res => {
-            console.log('res: ', res.data);
-            return res.data;
-        })
-        .catch(error => {
-            console.log('error: ', error);
-        });
-    return result;
-}
-
 // export async function registerRequest()
