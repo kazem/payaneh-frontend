@@ -1,14 +1,21 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import Payaneh from '../views/Payaneh.vue'
+import Playground from '../views/Playground.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'payaneh',
+    component: Payaneh
+  },
+  {
+    path: '/playground',
+    name: 'playground',
+    component: Playground
   },
   {
     path: '/about',
